@@ -1,0 +1,36 @@
+{
+    "format_version": 2,
+    "header": {
+      "name": "AntiCheat",
+      "description": "AntiCheat",
+      "uuid": "7fc4bea2-9154-4f46-910d-f9d8ff6467af",
+      "version": [ 1, 0, 0 ],
+      "min_engine_version": [ 1, 21, 50 ]
+    },
+    "modules": [
+      {
+        "version": [ 1, 0, 0 ],
+        "type": "data",
+        "uuid": "ac3a4e2a-8f4c-4b9f-a379-38c544e512ee",
+        "description": "data module"
+      },
+      {
+        "version": [ 1, 0, 0 ],
+        "type": "script",
+        "language": "javascript",
+        "entry": "scripts/main.js",
+        "uuid": "d569fa88-f847-4492-9b64-2e24bae3599d",
+        "description": "script module"
+      }
+    ],
+    "dependencies": [
+      {
+        "module_name": "@minecraft/server",
+        "version": "1.17.0-beta"
+      },
+      {
+        "module_name": "@minecraft/server-ui",
+        "version": "1.4.0-beta"
+      }
+    ]
+  }
