@@ -61,6 +61,10 @@ export const BANNED_ITEMS = [
     {
         itemId: "minecraft:deny",
         displayName: "拒否ブロック"
+    },
+    {
+        itemId: "minecraft:allow",
+        displayName: "許可ブロック"
     }
 ];
 
@@ -69,5 +73,20 @@ export const SPECIAL_BANNED_PATTERNS = [
         pattern: "minecraft:light_block_",
         displayName: "ライトブロック",
         check: (itemId) => itemId.startsWith("minecraft:light_block_")
+    },
+    {
+        pattern: "minecraft:*_spawn_egg",
+        displayName: "スポーンエッグ",
+        check: (itemId) => itemId.endsWith("_spawn_egg"),
+        // スポーンエッグの場合、具体的なMobの名前を表示するための追加処理
+        getDisplayName: (itemId) => {
+            const mobName = itemId
+                .replace("minecraft:", "")
+                .replace("_spawn_egg", "")
+                .split("_")
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ");
+            return `${mobName} のスポーンエッグ`;
+        }
     }
 ];

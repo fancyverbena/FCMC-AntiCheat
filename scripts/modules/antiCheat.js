@@ -28,19 +28,25 @@ export class AntiCheat {
                 this.handleBannedItem(player, bannedItem, item, i);
                 continue;
             }
-
+            
             // 特別なパターンチェック
             const specialBanned = SPECIAL_BANNED_PATTERNS.find(pattern => 
                 pattern.check(item.typeId)
             );
             if (specialBanned) {
+                const displayName = specialBanned.getDisplayName 
+                    ? specialBanned.getDisplayName(item.typeId)
+                    : specialBanned.displayName;
+
                 this.handleBannedItem(player, {
-                    displayName: specialBanned.displayName,
+                    displayName: displayName,
                     itemId: item.typeId
                 }, item, i);
             }
         }
     }
+
+
 
     static handleBannedItem(player, bannedItem, item, slot) {
         // アイテムを削除
