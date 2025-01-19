@@ -55,3 +55,11 @@ export const BANNED_ITEMS = [
         displayName: "バリアブロック"
     }
 ];
+
+export const SPECIAL_BANNED_PATTERNS = [
+    {
+        pattern: "minecraft:light_block_",
+        displayName: "ライトブロック",
+        check: (itemId) => itemId.startsWith("minecraft:light_block_")
+    }
+];
