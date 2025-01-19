@@ -57,6 +57,10 @@ export const BANNED_ITEMS = [
     {
         itemId: "minecraft:border_block",
         displayName: "ボーダーブロック"
+    },
+    {
+        itemId: "minecraft:deny",
+        displayName: "拒否ブロック"
     }
 ];
 
