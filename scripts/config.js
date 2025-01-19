@@ -45,5 +45,9 @@ export const BANNED_ITEMS = [
     {
         itemId: "minecraft:structure_void",
         displayName: "ストラクチャーヴォイド"
+    },
+    {
+        itemId: "minecraft:command_block_minecart",
+        displayName: "コマンドブロック付きトロッコ"
     }
 ];
