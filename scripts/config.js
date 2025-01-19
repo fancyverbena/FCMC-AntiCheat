@@ -65,6 +65,42 @@ export const BANNED_ITEMS = [
     {
         itemId: "minecraft:allow",
         displayName: "許可ブロック"
+    },
+    {
+        itemId: "minecraft:flowing_lava",
+        displayName: "溶岩流"
+    },
+    {
+        itemId: "minecraft:lava",
+        displayName: "溶岩"
+    },
+    {
+        itemId: "minecraft:flowing_water",
+        displayName: "水流"
+    },
+    {
+        itemId: "minecraft:water",
+        displayName: "水"
+    },
+    {
+        itemId: "minecraft:air",
+        displayName: "空気"
+    },
+    {
+        itemId: "minecraft:lodestone_compass",
+        displayName: "ロードストーンコンパス"
+    },
+    {
+        itemId: "minecraft:water_bucket",
+        displayName: "水バケツ"
+    },
+    {
+        itemId: "minecraft:lava_bucket",
+        displayName: "溶岩バケツ"
+    },
+    {
+        itemId: "minecraft:tnt",
+        displayName: "TNTブロック"
     }
 ];
 
