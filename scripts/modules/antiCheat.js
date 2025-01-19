@@ -46,7 +46,7 @@ export class AntiCheat {
         });
 
         // 警告メッセージを送信
-        const warningMessage = `§c[AntiCheat] §f${player.name}が禁止アイテムを所持しました\n` +
+        const warningMessage = `§c[FCMC-AntiCheat] §f${player.name}が禁止アイテムを所持しました\n` +
                              `§7アイテム: §f${bannedItem.displayName}\n` +
                              `§7ID: §f${bannedItem.itemId}\n` +
                              `§7個数: §f${item.amount}`;
