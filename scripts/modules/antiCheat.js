@@ -2,6 +2,7 @@ import { world, system } from "@minecraft/server";
 import { BANNED_ITEMS, SPECIAL_BANNED_PATTERNS, RANKS } from "../config.js";
 import { RankSystem } from "./rankSystem.js";
 import { EnchantChecker } from "./enchantChecker.js";
+import { EquipmentSlot } from "@minecraft/server";
 
 export class AntiCheat {
     static checkBannedItems(player) {
@@ -58,12 +59,12 @@ export class AntiCheat {
         const equipment = player.getComponent("equippable");
         if (equipment) {
             const slots = [
-                "head",
-                "chest",
-                "legs",
-                "feet",
-                "mainhand",
-                "offhand"
+                EquipmentSlot.Head,
+                EquipmentSlot.Chest,
+                EquipmentSlot.Legs,
+                EquipmentSlot.Feet,
+                EquipmentSlot.Mainhand,
+                EquipmentSlot.Offhand
             ];
 
             for (const slot of slots) {
@@ -141,11 +142,21 @@ export class AntiCheat {
             volume: 1.0
         });
 
+        // スロット名を読みやすい形式に変換
+        const slotNames = {
+            [EquipmentSlot.Head]: "頭",
+            [EquipmentSlot.Chest]: "胴体",
+            [EquipmentSlot.Legs]: "脚",
+            [EquipmentSlot.Feet]: "足",
+            [EquipmentSlot.Mainhand]: "メインハンド",
+            [EquipmentSlot.Offhand]: "オフハンド"
+        };
+
         // 警告メッセージを送信
         const warningMessage = `§c[FCMC-AntiCheat] §f${player.name}が禁止アイテムを装備しました\n` +
                              `§7アイテム: §f${bannedItem.displayName}\n` +
                              `§7ID: §f${item.typeId}\n` +
-                             `§7スロット: §f${slot}`;
+                             `§7スロット: §f${slotNames[slot] || slot}`;
 
         world.sendMessage(warningMessage);
     }
@@ -191,13 +202,23 @@ export class AntiCheat {
             volume: 1.0
         });
 
+        // スロット名を読みやすい形式に変換
+        const slotNames = {
+            [EquipmentSlot.Head]: "頭",
+            [EquipmentSlot.Chest]: "胴体",
+            [EquipmentSlot.Legs]: "脚",
+            [EquipmentSlot.Feet]: "足",
+            [EquipmentSlot.Mainhand]: "メインハンド",
+            [EquipmentSlot.Offhand]: "オフハンド"
+        };
+
         // 違反メッセージの生成
         const violationDetails = EnchantChecker.getViolationMessage(violations, item.typeId);
         
         // 警告メッセージを送信
         const warningMessage = `§c[FCMC-AntiCheat] §f${player.name}が不正なエンチャントのアイテムを装備しました\n` +
                              `§7アイテム: §f${item.typeId}\n` +
-                             `§7スロット: §f${slot}\n` +
+                             `§7スロット: §f${slotNames[slot] || slot}\n` +
                              `§7違反内容:\n${violationDetails.join('\n')}`;
 
         world.sendMessage(warningMessage);
