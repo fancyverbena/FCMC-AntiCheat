@@ -126,3 +126,40 @@ export const SPECIAL_BANNED_PATTERNS = [
         }
     }
 ];
+
+export const MAX_ENCHANT_LEVELS = {
+    "protection": 4,
+    "fire_protection": 4,
+    "feather_falling": 4,
+    "blast_protection": 4,
+    "projectile_protection": 4,
+    "thorns": 3,
+    "respiration": 3,
+    "depth_strider": 3,
+    "aqua_affinity": 1,
+    "sharpness": 5,
+    "smite": 5,
+    "bane_of_arthropods": 5,
+    "knockback": 2,
+    "fire_aspect": 2,
+    "looting": 3,
+    "efficiency": 5,
+    "silk_touch": 1,
+    "unbreaking": 3,
+    "fortune": 3,
+    "power": 5,
+    "punch": 2,
+    "flame": 1,
+    "infinity": 1,
+    "mending": 1,
+    "swift_sneak": 3,
+    "soul_speed": 3
+};
+
+// 禁止されたエンチャントの組み合わせ
+export const INCOMPATIBLE_ENCHANTS = [
+    ["infinity", "mending"],
+    ["silk_touch", "fortune"],
+    ["sharpness", "smite", "bane_of_arthropods"],
+    ["protection", "fire_protection", "blast_protection", "projectile_protection"]
+];
